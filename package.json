@@ -1,0 +1,31 @@
+{
+  "name": "@chabdulwahab/flowcap",
+  "version": "1.0.0",
+  "description": "Zero-dependency, framework-agnostic rate limiting middleware. Cap the flow.",
+  "main": "src/index.js",
+  "types": "types/index.d.ts",
+  "keywords": [
+    "rate-limit",
+    "rate-limiting",
+    "middleware",
+    "express",
+    "fastify",
+    "koa",
+    "throttle",
+    "api",
+    "429",
+    "flowcap"
+  ],
+  "files": [
+    "src",
+    "types",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}
