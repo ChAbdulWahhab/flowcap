@@ -1,5 +1,5 @@
 {
-  "name": "@chabdulwahhab/flowcap",
+  "name": "@chabdulwahab/flowcap",
   "version": "1.0.4",
   "description": "Zero-dependency, framework-agnostic rate limiting middleware. Cap the flow.",
   "main": "src/index.js",
