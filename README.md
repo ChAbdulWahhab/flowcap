@@ -1,6 +1,6 @@
 <div align="center">
 
-![Rate limiting, the way it should've been](./article-banner.jpg)
+![Rate limiting, the way it should've been](./assets/article-banner.webp)
 
 # @chabdulwahab/flowcap
 
