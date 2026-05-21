@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/article-banner.webp" alt="Rate limiting, the way it should've been" style="border-radius: 30px;" />
+![Rate limiting, the way it should've been](./assets/article-banner-glass.png)
 
 # @chabdulwahab/flowcap
 
