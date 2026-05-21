@@ -158,6 +158,8 @@ interface FlowcapStore {
 
 ## Resources
 
+[![Flowcap Article Banner](./assets/article-banner.webp)](https://dev.to/chabdulwahhab310/why-i-stopped-writing-15-60-1000-in-every-project-4gb)
+
 - **Deep Dive / Article:** Read the detailed article on [dev.to](https://dev.to/chabdulwahhab310/why-i-stopped-writing-15-60-1000-in-every-project-4gb) explaining the design decisions and implementation details.
 
 ## License

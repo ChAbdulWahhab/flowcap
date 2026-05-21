@@ -21,6 +21,14 @@
     "types",
     "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChAbdulWahhab/flowcap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChAbdulWahhab/flowcap/issues"
+  },
+  "homepage": "https://github.com/ChAbdulWahhab/flowcap#readme",
   "scripts": {
     "test": "node --test test/*.test.js"
   },
