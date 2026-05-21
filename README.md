@@ -1,6 +1,10 @@
+<div align="center">
+
+![Rate limiting, the way it should've been](./article-banner.jpg)
+
 # @chabdulwahab/flowcap
 
-<div>
+A zero-dependency, framework-agnostic HTTP rate limiting middleware for Node.js.
 
 [![NPM Version](https://img.shields.io/npm/v/@chabdulwahab/flowcap.svg?style=flat-square&color=blue)](https://www.npmjs.com/package/@chabdulwahab/flowcap)
 [![NPM Downloads](https://img.shields.io/npm/dt/@chabdulwahab/flowcap.svg?style=flat-square)](https://www.npmjs.com/package/@chabdulwahab/flowcap)
@@ -12,8 +16,6 @@
 </div>
 
 ---
-
-A zero-dependency, framework-agnostic HTTP rate limiting middleware for Node.js.
 
 ## Features
 
@@ -29,6 +31,7 @@ A zero-dependency, framework-agnostic HTTP rate limiting middleware for Node.js.
 
 ```bash
 npm install @chabdulwahab/flowcap
+
 ```
 
 ## Usage
@@ -43,6 +46,7 @@ const app = express();
 
 // Apply a global rate limit of 100 requests per minute
 app.use(flowcap({ limit: 100, window: '1m' }));
+
 ```
 
 ### Built-in Presets
@@ -64,6 +68,7 @@ app.get('/public', flowcap.loose());
 
 // Override a preset configuration
 app.post('/login', flowcap.login({ limit: 3 }));
+
 ```
 
 ---
@@ -71,14 +76,17 @@ app.post('/login', flowcap.login({ limit: 3 }));
 ## Framework Support
 
 ### Fastify
+
 ```javascript
 const fastify = require('fastify')();
 const flowcap = require('@chabdulwahab/flowcap');
 
 fastify.use(flowcap());
+
 ```
 
 ### Koa
+
 ```javascript
 const Koa = require('koa');
 const flowcap = require('@chabdulwahab/flowcap');
@@ -90,6 +98,7 @@ app.use(async (ctx, next) => {
     flowcap()(ctx.req, ctx.res, () => resolve(next()));
   });
 });
+
 ```
 
 ---
@@ -99,9 +108,9 @@ app.use(async (ctx, next) => {
 ### Configuration Options
 
 | Option | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `limit` | `number` | `100` | Maximum requests permitted per window. |
-| `window` | `string` \| `number` | `'1m'` | Window duration. Accepts readable strings (e.g., `'15m'`, `'30s'`) or milliseconds. |
+| `window` | `string` | `number` | `'1m'` | Window duration. Accepts readable strings (e.g., `'15m'`, `'30s'`) or milliseconds. |
 | `keyBy` | `function` | `req => req.ip` | Extracts the unique identifier for the client making the request. |
 | `skip` | `function` | `null` | Returns `true` to unconditionally bypass rate limiting. |
 | `onLimit` | `function` | `null` | Custom handler for HTTP 429 Responses: `(req, res, next)`. |
@@ -118,6 +127,7 @@ app.use(flowcap({
   window: '1h',
   keyBy: (req) => req.headers['x-api-key'] || req.ip
 }));
+
 ```
 
 #### Conditional Bypassing
@@ -128,6 +138,7 @@ app.use(flowcap({
   window: '1m',
   skip: (req) => req.path === '/health'
 }));
+
 ```
 
 #### Custom Rate Limit Responses
@@ -140,6 +151,7 @@ app.use(flowcap({
     res.status(429).json({ error: 'Rate limit exceeded. Please try again later.' });
   }
 }));
+
 ```
 
 ### Custom Store Implementation
@@ -152,15 +164,14 @@ interface FlowcapStore {
   add(key: string, windowMs: number): void;
   resetTime(key: string, windowMs: number): number;
 }
+
 ```
 
 ---
 
 ## Resources
 
-[![Flowcap Article Banner](./assets/article-banner.webp)](https://dev.to/chabdulwahhab310/why-i-stopped-writing-15-60-1000-in-every-project-4gb)
-
-- **Deep Dive / Article:** Read the detailed article on [dev.to](https://dev.to/chabdulwahhab310/why-i-stopped-writing-15-60-1000-in-every-project-4gb) explaining the design decisions and implementation details.
+* **Deep Dive / Article:** Read the detailed article on [dev.to](https://dev.to/chabdulwahhab310/why-i-stopped-writing-15-60-1000-in-every-project-4gb) explaining the design decisions and implementation details behind Flowcap.
 
 ## License
 
